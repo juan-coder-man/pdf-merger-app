@@ -7,7 +7,12 @@ const statusMessage = document.getElementById("statusMessage");
 let selectedFiles = [];
 
 fileInput.addEventListener("change", (event) => {
-    selectedFiles = Array.from(event.target.files || []);
+    const newFiles = Array.from(event.target.files || []);
+    if (newFiles.length === 0) {
+        return;
+    }
+
+    selectedFiles = newFiles;
     renderFiles();
 });
 
