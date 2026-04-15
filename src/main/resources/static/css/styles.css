@@ -1,0 +1,133 @@
+:root {
+    /* Tokens visuales base de la interfaz. */
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --border: #d1d5db;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Centra el contenido principal en viewport completa. */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* Tarjeta principal de trabajo para carga y accion. */
+.card {
+    width: 100%;
+    max-width: 720px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.subtitle {
+    margin: 8px 0 20px;
+    color: var(--muted);
+}
+
+.file-input-label {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.file-input-label:hover {
+    background: var(--primary-hover);
+}
+
+#fileInput {
+    display: none;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid;
+    gap: 10px;
+}
+
+/* Item individual con nombre y controles de orden. */
+.file-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Estilos base de botones secundarios y primario. */
+.order-actions button,
+.primary {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.primary {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.primary:hover:enabled {
+    background: var(--primary-hover);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.actions {
+    margin-top: 8px;
+}
+
+/* Zona de feedback para exito/error de la operacion. */
+.status {
+    margin-top: 12px;
+    min-height: 20px;
+    color: var(--muted);
+}

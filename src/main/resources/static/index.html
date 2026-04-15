@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<main class="container">
+    <!-- Contenedor principal de la interfaz de carga y ordenamiento de PDFs. -->
+    <section class="card">
+        <h1>Unificador de PDF</h1>
+        <p class="subtitle">Sube, ordena y descarga un unico archivo PDF.</p>
+
+        <label class="file-input-label" for="fileInput">Seleccionar PDFs</label>
+        <input id="fileInput" type="file" accept="application/pdf,.pdf" multiple>
+
+        <!-- Lista dinamica renderizada por app.js para reflejar el orden final. -->
+        <ul id="fileList" class="file-list"></ul>
+
+        <div class="actions">
+            <button id="mergeButton" class="primary" type="button" disabled>Unificar y descargar</button>
+        </div>
+
+        <p id="statusMessage" class="status" aria-live="polite"></p>
+    </section>
+</main>
+<!-- Logica de estado UI, reordenamiento y llamada al backend. -->
+<script src="/js/app.js"></script>
+</body>
+</html>
