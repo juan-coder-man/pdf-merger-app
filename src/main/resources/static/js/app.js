@@ -87,7 +87,13 @@ function renderFiles() {
         downButton.disabled = index === selectedFiles.length - 1;
         downButton.addEventListener("click", () => moveFile(index, index + 1));
 
-        actions.append(upButton, downButton);
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.className = "remove-button";
+        removeButton.textContent = "Quitar";
+        removeButton.addEventListener("click", () => removeFile(index));
+
+        actions.append(upButton, downButton, removeButton);
         item.append(name, actions);
         fileList.appendChild(item);
     });
@@ -105,6 +111,18 @@ function moveFile(fromIndex, toIndex) {
     const updated = [...selectedFiles];
     const [moved] = updated.splice(fromIndex, 1);
     updated.splice(toIndex, 0, moved);
+    selectedFiles = updated;
+    renderFiles();
+}
+
+// Elimina un archivo del arreglo local segun su posicion actual.
+function removeFile(index) {
+    if (index < 0 || index >= selectedFiles.length) {
+        return;
+    }
+
+    const updated = [...selectedFiles];
+    updated.splice(index, 1);
     selectedFiles = updated;
     renderFiles();
 }

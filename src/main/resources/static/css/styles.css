@@ -6,6 +6,8 @@
     --muted: #6b7280;
     --primary: #2563eb;
     --primary-hover: #1d4ed8;
+    --danger: #dc2626;
+    --danger-hover: #b91c1c;
     --border: #d1d5db;
 }
 
@@ -104,6 +106,16 @@ h1 {
     background: #fff;
     padding: 8px 12px;
     cursor: pointer;
+}
+
+.order-actions .remove-button {
+    color: var(--danger);
+    border-color: #fecaca;
+}
+
+.order-actions .remove-button:hover:enabled {
+    background: #fef2f2;
+    color: var(--danger-hover);
 }
 
 .primary {
