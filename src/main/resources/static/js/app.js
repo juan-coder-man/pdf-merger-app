@@ -12,7 +12,8 @@ fileInput.addEventListener("change", (event) => {
         return;
     }
 
-    selectedFiles = newFiles;
+    selectedFiles = [...selectedFiles, ...newFiles];
+    fileInput.value = "";
     renderFiles();
 });
 
