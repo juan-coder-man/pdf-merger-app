@@ -46,7 +46,7 @@ public class PdfMergeServiceImpl implements PdfMergeService {
             }
         }
 
-        return pdfProcessingGateway.mergeAndNumberPages(orderedPdfs);
+        return pdfProcessingGateway.mergePdfs(orderedPdfs);
     }
 
     /**

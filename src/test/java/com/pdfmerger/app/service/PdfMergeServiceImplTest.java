@@ -3,6 +3,7 @@ package com.pdfmerger.app.service;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -37,12 +38,14 @@ class PdfMergeServiceImplTest {
         MockMultipartFile second = new MockMultipartFile("files", "second.pdf", "application/pdf", "B".getBytes());
         byte[] expected = "merged".getBytes();
 
-        when(pdfProcessingGateway.mergeAndNumberPages(anyList())).thenReturn(expected);
+        when(pdfProcessingGateway.mergePdfs(anyList())).thenReturn(expected);
 
         byte[] result = pdfMergeService.merge(List.of(first, second), List.of(1, 0));
 
         assertArrayEquals(expected, result);
-        verify(pdfProcessingGateway).mergeAndNumberPages(List.of("B".getBytes(), "A".getBytes()));
+        verify(pdfProcessingGateway).mergePdfs(argThat(orderedPdfs -> orderedPdfs.size() == 2
+                && java.util.Arrays.equals(orderedPdfs.get(0), "B".getBytes())
+                && java.util.Arrays.equals(orderedPdfs.get(1), "A".getBytes())));
     }
 
     @Test

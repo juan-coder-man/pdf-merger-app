@@ -2,6 +2,10 @@
 
 Aplicacion web sencilla para unificar archivos PDF con Spring Boot, Java, HTML, CSS y JavaScript.
 
+## Captura
+
+![Captura de la aplicacion](SS.png)
+
 ## Requisitos
 
 - Java 21
@@ -19,4 +23,4 @@ Abrir en navegador: [http://localhost:8080](http://localhost:8080)
 
 1. Subir varios archivos `.pdf`.
 2. Reordenar los archivos con botones de subir y bajar.
-3. Descargar el archivo unificado (`merged.pdf`) con numeracion por pagina.
+3. Descargar el archivo unificado (`merged.pdf`).
